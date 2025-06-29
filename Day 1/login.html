@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        h1{
+            color: bisque;
+        }
+        .form {
+            background-color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 5px solid rgb(1, 1, 1);
+            color:bisque;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 30px;
+            font-size: 30px;
+        }
+        .input{
+            width: 300px;
+            height: 40px;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            background-color: rgb(136, 136, 136);
+            color: bisque;
+        }
+        .btn{
+            background-color: rgb(136, 136, 136);
+            border-radius: 30px;
+            font-size: 30px;
+            color: bisque;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="form">
+        <h1>Login</h1>
+        <div class="username">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="input" placeholder="Enter your name">
+        </div>
+        <br>
+        <div class="password">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="input" placeholder="Enter your password">
+        </div>
+        <br>
+        <div class="submit">
+            <button type="submit" class="btn">Login</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
