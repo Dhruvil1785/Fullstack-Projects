@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form action="">
+        <select name="gender" id="gender" onchange="CheckGender()">
+            <option value="">--select your choice--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <img src="malepic.jpeg" alt="" style="display: none;" id="male">
+        <img src="femalepic.jpeg" alt="" style="display: none;" id="female">
+    </form>
+
+    <script>
+
+        function CheckGender() {
+            let checkgender = document.getElementById("gender").value;
+
+            if (checkgender == "male") {
+                document.getElementById("male").style.display = "block";
+                document.getElementById("female").style.display = "none";
+            }
+            else if (checkgender == "female") {
+                document.getElementById("male").style.display = "none";
+                document.getElementById("female").style.display = "block";
+            }
+            else {
+                document.getElementById("male").style.display = "none";
+                document.getElementById("female").style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

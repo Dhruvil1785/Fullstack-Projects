@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regestration Page</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* h1{
+            text-decoration: underline;
+        } */
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 50px;
+            background-color: rgb(223, 223, 223);
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 4px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            width: 100px;
+            display: block;
+            margin: 20px auto;
+            padding: 8px;
+            border-radius: 15px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" onsubmit="return validation()">
+
+        <h1>Regestration Form</h1>
+        <div class="name">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <span id="nameError" style="color: red; display:none"></span>
+        </div>
+        <br>
+        <div class="email">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <span id="emailError" style="color: red; display:none"></span>
+        </div>
+        <br>
+        <div class="password">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <span id="passwordError" style="color: red; display:none"></span>
+        </div>
+        <br>
+        <div class="gender">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" onchange="CheckGender()">
+                <option value="">--select your choice--</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <br>
+        <div class="number">
+            <label for="number">Phone Number</label>
+            <input type="tel" id="number" name="number">
+            <span id="numberError" style="color: red; display:none"></span>
+        </div>
+        <div class="submit">
+            <input type="submit" value="Register" class="btn">
+        </div>
+    </form>
+
+    <script>
+        function validation() {
+            // Name validation
+            let Name = document.getElementById("name").value;
+            if (Name == "") {
+                document.getElementById("nameError").innerText = "Please enter your name";
+                document.getElementById("nameError").style.display = "block";
+                document.getElementById("name").style.borderColor = "red";
+                return false;
+            }
+            else if(Name.search(/^[a-zA-Z\s]+$/) == -1) {
+                document.getElementById("nameError").innerText = "Please enter valid name";
+                document.getElementById("nameError").style.display = "block";
+                document.getElementById("name").style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById("nameError").style.display = "none";
+                document.getElementById("name").style.borderColor = "red";
+            }
+
+            // Email validation
+            let mail = document.getElementById("email").value;
+            if (mail == "") {
+                document.getElementById("emailError").innerText = "Please enter your email";
+                document.getElementById("emailError").style.display = "block";
+                document.getElementById("email").style.borderColor = "red";
+                return false;
+            }
+            else if(mail.search(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/) == -1) {
+                document.getElementById("emailError").innerText = "Please enter valid email";
+                document.getElementById("emailError").style.display = "block";
+                document.getElementById("email").style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById("emailError").style.display = "none";
+                document.getElementById("email").style.borderColor = "red";
+            }
+
+            // Password validation
+            let Password = document.getElementById("password").value;
+            if (Password == "") {
+                document.getElementById("passwordError").innerText = "Please enter your password";
+                document.getElementById("passwordError").style.display = "block";
+                document.getElementById("password").style.borderColor = "red";
+                return false;
+            }
+            else if(Password.length < 8) {
+                document.getElementById("passwordError").innerText = "Password must be at least 8 characters";
+                document.getElementById("passwordError").style.display = "block";
+                document.getElementById("password").style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById("passwordError").style.display = "none";
+                document.getElementById("password").style.borderColor = "red";
+            }
+
+            // Gender vaidation
+            let Gender = document.getElementById("gender").value;
+            if (Gender == "") {
+                alert("Please select your gender");
+                return false;
+            }
+            
+            // Phone number validation
+            let Number = document.getElementById("number").value;
+            if (Number == "") {
+                document.getElementById("numberError").innerText = "Please enter your phone number";
+                document.getElementById("numberError").style.display = "block";
+                document.getElementById("number").style.borderColor = "red";
+                return false;
+            }
+            else if(Number.search(/^\d{10}$/) == -1){
+                document.getElementById("numberError").innerText = "Please enter valid phone nummber";
+                document.getElementById("numberError").style.display = "block";
+                document.getElementById("number").style.borderColor = "red";
+                return false;
+            }
+            else{
+                document.getElementById("numberError").style.display = "none";
+                document.getElementById("number").style.borderColor = "red";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
