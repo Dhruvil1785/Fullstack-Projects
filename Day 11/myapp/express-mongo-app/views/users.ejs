@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User list</title>
+</head>
+
+<body>
+    <h1>All Users</h1>
+    <form method="POST" action="/users">
+        <input name="name" placeholder="Name" required>
+        <input name="email" placeholder="Email" required>
+        <input name="age" placeholder="Age" type="number" required>
+        <button type="submit">Add User</button>
+    </form>
+    <ul>
+        <% users.forEach(user=> {/%})>
+            <li>
+                <%=user.name %> | <%=user.email %> | <%=user.age %>
+            </li>
+            <% }) %>
+    </ul>
+
+</body>
+
+</html>
