@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+        #quote{
+            background: #fff;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        #inputArea{
+            width:80%;
+            max-width: 700px;
+            padding: 10px;
+            height: 120px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            resize: none;
+        }
+        #startBtn{
+            margin:20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        Typing Speed Test
+    </h2>
+
+    <div id="quote">Click "Start" to begin the test</div>
+    <textarea id="inputArea" placeholder="Start typing here..."disabled></textarea>
+    <button id="startBtn" onclick="startTest()">Start</button>
+    <div id="result"></div>
+
+    <script>
+        const quotes = [
+            "This is so good...",
+            "This is so good...",
+            "This is so good...",
+            "This is so good...",
+            "This is so good..."
+        ];
+
+        let startTime;
+        let currentQuote;
+
+        function startTest(){
+            currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quote").textContent = currentQuote;
+
+            const inputArea = document.getElementById("inputArea");
+            inputArea.value = "";
+            inputArea.disabled = false;
+            inputArea.focus();
+
+            document.getElementById("result").textContent = "";
+            startTime = new Date().getTime();
+
+            inputArea.oninput = () => {
+                if(inputArea.value === currentQuote){
+                    const endTime = new Date().getTime();
+                    const timeTaken = (endTime - startTime)/1000;
+                    const wordCount = currentQuote.split(" ").length;
+                    const speed = Math.round((wordCount / timeTaken) * 60);
+
+                    document.getElementById("result").textContent =` You typed ${wordCount} words in ${timeTaken.toFixed(2)} seconds and speed is ${speed}wpm.`;
+
+                    inputArea.disabled = true;
+                }
+            };
+        }
+    </script>
+</body>
+</html>

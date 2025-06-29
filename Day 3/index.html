@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Print number from 1 to 100
+        for (let i = 1; i <= 100; i++) {
+            console.log(i);
+        }
+
+        //Check Even or odd
+        let input = prompt("Enter a number to check if it's even or odd:");
+        let number = parseInt(input);
+            if (isNaN(number)) {
+                console.log("Please enter a valid number.");
+            } else {
+                if (number % 2 === 0) {
+                    console.log(`${number} is even.`);
+                } else {
+                    console.log(`${number} is odd.`);
+                }
+            }
+
+            //Reverse a string
+            let str = "World";
+            let Reversed = "";
+
+            for (let i = str.length - 1; i >= 0; i--) {
+                Reversed += str[i];
+            }
+            console.log(`Reversed string: ${Reversed}`);
+
+            //Count a vowel in a string
+            function countVowels(str) {
+                const vowels = 'aeiouAEIOU';
+                let count = 0;
+                for (let char of str) {
+                    if (vowels.includes(char)) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+            console.log(`Number of vowels in "${str}": ${countVowels(str)}`);
+
+            //Find the largest number in an array
+            function findLargestNumber(arr) {
+                let largest = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] > largest) {
+                        largest = arr[i];
+                    }
+                }
+                return largest;
+            }
+            console.log(`Largest number in the array [1, 2, 3, 4, 5]: ${findLargestNumber([1, 2, 3, 4, 5])}`);
+
+
+            //Palindrome check
+            function isPalindrome(str) {
+                const reversedStr = str.split('').reverse().join('');
+                return str === reversedStr;
+            }
+            console.log(isPalindrome("A man, a plan, a canal, Panama is a palindrome: ") + isPalindrome);
+
+            //Taking user input
+            let num1 = prompt("Emter a first nummber: ")
+            let num2 = prompt("Emter a second nummber: ")
+
+            let sum = parseFloat(num1) + parseFloat(num2);
+            console.log("The sum of " + num1 + " and " + num2 + " is: " + sum);
+
+            //Random function using alert 
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            alert("Random number between 1 and 100: " + randomNumber);
+       
+    </script>
+
+</body>
+
+</html>
